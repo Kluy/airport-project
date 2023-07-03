@@ -1,6 +1,6 @@
 <h1>Airport shedule</h1>
 
-<h2><a href="https://ephemeral-nasturtium-b2ddbd.netlify.app/">Site link</a></h2>
+<h2><a href="https://airport-gr.netlify.app/">Site link</a></h2>
 
 <p>Layout supports desktop (up-to-1440) versions</p>
 
