@@ -8,13 +8,15 @@ import moment from 'moment';
 import './shedule.scss';
 
 const Shedule = ({ shedule }) => {
-  if (shedule.length === 0 || shedule.departure.length === 0)
-    return <div className="no-flights">Немає рейсів</div>;
+  console.log(shedule);
+
+  if (shedule.length === 0) return <div className="no-flights">Немає рейсів</div>;
 
   const { isDeparture } = useParams();
   const departure = isDeparture === 'departure';
   const { search } = Object.fromEntries(...useSearchParams());
-  const flights = departure ? shedule.departure : shedule.arrival;
+  // const flights = departure ? shedule.departure : shedule.arrival;
+  const flights = shedule;
 
   return (
     <div className="flights">
@@ -30,45 +32,41 @@ const Shedule = ({ shedule }) => {
       {flights
         .filter(flight =>
           search
-            ? flight.codeShareData[0].codeShare.includes(search.toUpperCase())
+            ? flight.codeShare.includes(search.toUpperCase())
               ? flight
-              : flight['airportToID.city']
-              ? flight['airportToID.city'].toLowerCase().includes(search.toLowerCase())
-              : flight['airportFromID.city'].toLowerCase().includes(search.toLowerCase())
+              : flight['arrivalCity']
+              ? flight['arrivalCity'].toLowerCase().includes(search.toLowerCase())
+              : flight['departureCity'].toLowerCase().includes(search.toLowerCase())
             : flight,
         )
         .map(flight => {
           return (
-            <ul key={flight.ID} className="flights__table flight">
+            <ul key={flight.id} className="flights__table flight">
               <li
                 className={classNames('flight__terminal', {
-                  flight__terminal_D: flight.term === 'D',
+                  flight__terminal_D: flight.terminal === 'D',
                 })}
               >
-                {flight.term}
+                {flight.terminal}
               </li>
               <li className="flight__item ">
                 {departure
-                  ? moment(flight.timeDepShedule).locale('uk').format('LT')
-                  : moment(flight.timeArrShedule).locale('uk').format('LT')}
+                  ? moment(flight.departureDate).locale('uk').format('LT')
+                  : moment(flight.arrivalDate).locale('uk').format('LT')}
               </li>
               <li className="flight__item flight__item_status">
-                {flight['airportToID.city'] || flight['airportFromID.city']}
+                {flight.arrivalCity || flight.departureCity}
               </li>
               <li className="flight__item_status">
                 {departure
-                  ? `Вилетів о ${moment(flight.timeDepFact).locale('uk').format('LT')}`
-                  : `Прибув о ${moment(flight.timeLandFact).locale('uk').format('LT')}`}
+                  ? `Вилетів о ${moment(flight.departureDateExpected).locale('uk').format('LT')}`
+                  : `Прибув о ${moment(flight.arrivalDateExpected).locale('uk').format('LT')}`}
               </li>
               <li className="flight__item_airline flight__airline">
-                <img
-                  className="flight__airline-logo"
-                  src={flight.airline.en.logoSmallName}
-                  alt="logo"
-                />
-                <span className="flight__airline-name">{flight.airline.ua.name}</span>
+                <img className="flight__airline-logo" src={flight.airlineLogo} alt="logo" />
+                <span>{flight.airlineName}</span>
               </li>
-              <li className="flight__item">{flight.codeShareData[0].codeShare}</li>
+              <li className="flight__item">{flight.codeShare}</li>
               <li className="flight__item flight__item_status">
                 <a className="flight__item_details" href="#">
                   Деталі рейсу

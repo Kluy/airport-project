@@ -81,16 +81,13 @@
   }
 
   &__airline {
+    display: flex;
     position: relative;
+    align-items: center;
 
     &-logo {
-      width: 68px;
+      width: 59px;
       margin-right: 14px;
-    }
-
-    &-name {
-      position: absolute;
-      top: 11px;
     }
   }
 }

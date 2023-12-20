@@ -13,6 +13,6 @@ const saveShedule = shedule => {
 
 export const getSheduleAction = input => {
   return function (dispatch) {
-    getFlights(input).then(result => dispatch(saveShedule(result.body)));
+    getFlights().then(result => dispatch(saveShedule(result)));
   };
 };

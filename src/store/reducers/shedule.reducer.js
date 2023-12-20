@@ -1,10 +1,7 @@
 import { SAVE_SHEDULE } from '../actions/shedule.actions';
 
 const initialState = {
-  shedule: {
-    departure: [],
-    arrival: [],
-  },
+  shedule: [],
 };
 
 const sheduleReducer = (state = initialState, action) => {
