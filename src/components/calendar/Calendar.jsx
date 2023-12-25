@@ -40,9 +40,9 @@ const Calendar = ({ getShedule }) => {
           type="date"
         />
       </div>
-      <DateSelector selectDate={moment(newDate).subtract(1, 'days')} />
-      <DateSelector selectDate={moment(newDate)} />
-      <DateSelector selectDate={moment(newDate).add(1, 'days')} />
+      <DateSelector selectDate={moment(newDate).subtract(1, 'days')} day="ВЧОРА" />
+      <DateSelector selectDate={moment(newDate)} day="СЬОГОДНІ" />
+      <DateSelector selectDate={moment(newDate).add(1, 'days')} day="ЗАВТРА" />
     </div>
   );
 };

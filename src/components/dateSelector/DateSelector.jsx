@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const DateSelector = ({ selectDate }) => {
+const DateSelector = ({ selectDate, day }) => {
   const { isDeparture } = useParams();
 
   const date = selectDate.format('DD-MM-YYYY');
@@ -29,7 +29,7 @@ const DateSelector = ({ selectDate }) => {
       }}
     >
       <div>{selectDate.format('DD/MM')}</div>
-      <span className="calendar__item-text">ЗАВТРА</span>
+      <span className="calendar__item-text">{day}</span>
     </div>
   );
 };
