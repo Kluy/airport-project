@@ -46,26 +46,25 @@
   }
 
   &__item {
-    width: 73px;
+    width: 12%;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     &_details {
       visibility: hidden;
       color: $blue;
     }
 
-    &_status {
-      width: 140px;
-    }
-
     &_airline {
-      width: 200px;
+      width: 25%;
     }
   }
 
   &__terminal {
     width: 40px;
     height: 40px;
-    margin: 0 20px;
+    margin: 0 25px;
     font-size: 22px;
     color: $green;
     font-weight: 700;
@@ -86,7 +85,7 @@
     align-items: center;
 
     &-logo {
-      width: 59px;
+      width: 45px;
       margin-right: 14px;
     }
   }
