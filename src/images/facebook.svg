@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-5364 1110 30 30">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <g id="Facebook" transform="translate(-5364 1110)">
+    <rect id="Rectangle_1458" data-name="Rectangle 1458" class="cls-1" width="30" height="30" transform="translate(0 0)"/>
+    <path id="Path_1" data-name="Path 1" class="cls-2" d="M90.167,30V16.333h4.667L95.5,11H90.167V7.667c0-1.5.5-2.667,2.667-2.667h2.833V.167C95,.167,93.333,0,91.5,0c-4,0-6.833,2.5-6.833,7v4H80v5.333h4.667V30Z" transform="translate(-72.5 0)"/>
+  </g>
+</svg>
